@@ -46,9 +46,9 @@ def make_population(population_size, solution_generator, *args, **kwargs):
 
 def _print_fitnesses(iteration, fitnesses, best_solution, frequency=1):
     if iteration == 1 or iteration % frequency == 0:
-        print 'Iteration: ' + str(iteration)
-        print 'Avg Fitness: ' + str(sum(fitnesses) / len(fitnesses))
-        print 'Best Fitness: ' + str(best_solution['fitness'])
+        print('Iteration: ' + str(iteration))
+        print('Avg Fitness: ' + str(sum(fitnesses) / len(fitnesses)))
+        print('Best Fitness: ' + str(best_solution['fitness']))
 
 
 class Optimizer(object):
@@ -205,7 +205,7 @@ class Optimizer(object):
 
     def _set_hyperparameters(self, parameters):
         """Set internal optimization parameters."""
-        for name, value in parameters.iteritems():
+        for name, value in parameters.items():
             try:
                 getattr(self, name)
             except AttributeError:
@@ -276,7 +276,7 @@ class Optimizer(object):
             # Initialize default meta optimizer
             # GenAlg is used because it supports both discrete and continous
             # attributes
-            import genalg
+            from . import genalg
 
             # Create metaheuristic with computed decode function and soltuion
             # size
@@ -352,7 +352,7 @@ def _get_hyperparameter_solution_size(meta_parameters):
     # WARNING: meta_parameters is modified inline
 
     solution_size = 0
-    for _, parameters in meta_parameters.iteritems():
+    for _, parameters in meta_parameters.items():
         if parameters['type'] == 'discrete':
             # Binary encoding of discrete values -> log_2 N
             num_values = len(parameters['values'])
@@ -391,7 +391,7 @@ def _make_hyperparameter_decode_func(locked_values, meta_parameters):
 
         # Obtain moving hyperparameters from binary solution
         index = 0
-        for name, parameters in meta_parameters.iteritems():
+        for name, parameters in meta_parameters.items():
             # Obtain binary for this hyperparameter
             binary_size = parameters['binary_size']
             binary = solution[index:index + binary_size]

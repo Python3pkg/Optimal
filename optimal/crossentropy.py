@@ -33,6 +33,7 @@ import math
 import operator
 
 from optimal import optimize
+from functools import reduce
 
 
 class CrossEntropy(optimize.StandardOptimizer):

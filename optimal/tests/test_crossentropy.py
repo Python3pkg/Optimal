@@ -104,7 +104,7 @@ def test_crossentropy_problems():
                                           decode_func=examplefunctions.ackley_binary)
     optimizer._logging_func = lambda x, y, z : optimize._print_fitnesses(x, y, z, frequency=100)
     optimizer.optimize()
-    print 1.0 / optimizer.best_fitness
+    print(1.0 / optimizer.best_fitness)
     assert optimizer.solution_found
 
     # TODO: test other functions

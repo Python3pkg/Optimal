@@ -115,7 +115,7 @@ def benchmark(optimizer, runs=20):
         stats['runs'].append(stats_)
 
         # Little progress 'bar'
-        print '.',
+        print('.', end=' ')
 
     # Mean gives a good overall idea of the metaheuristics effectiveness
     # Standard deviation (SD) shows consistency of performance
@@ -156,12 +156,12 @@ def compare(optimizers, runs=20):
         # Foo 1, Foo 2, Bar 1, etc.
         key = '{} {}'.format(key_name, key_counts[key_name])
 
-        print key + ': ',
+        print(key + ': ', end=' ')
 
         # Finally, get the actual stats
         stats[key] = benchmark(optimizer, runs)
 
-        print
+        print()
 
     return stats
 

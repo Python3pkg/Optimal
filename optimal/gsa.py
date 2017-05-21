@@ -141,7 +141,7 @@ def _new_population_gsa(population, fitnesses, velocities,
     # Also store index to later check if two solutions are the same
     # Sorted by solution fitness (mass)
     solutions = [{'pos': pos, 'mass': mass, 'index': i}
-                 for i, (pos, mass) in enumerate(zip(population, masses))]
+                 for i, (pos, mass) in enumerate(list(zip(population, masses)))]
     solutions.sort(key=lambda x: x['mass'], reverse=True)
 
     # Get the force on each solution

@@ -85,16 +85,16 @@ ga_uniform = genalg.GenAlg(None, 32,
 onepoint_stats = benchmark_multi(ga_onepoint)
 uniform_stats = benchmark_multi(ga_uniform)
 
-print
-print 'One Point'
+print()
+print('One Point')
 pprint.pprint(onepoint_stats)
-print
-print 'Uniform'
+print()
+print('Uniform')
 pprint.pprint(uniform_stats)
 
 # We can obtain an easier comparison by performing another aggregate step
 aggregate_stats = benchmark.aggregate({'One Point': onepoint_stats,
                                        'Uniform': uniform_stats})
-print
-print 'Both'
+print()
+print('Both')
 pprint.pprint(aggregate_stats)
